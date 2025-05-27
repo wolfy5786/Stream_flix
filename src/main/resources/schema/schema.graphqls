@@ -1,0 +1,48 @@
+type User {
+    name: String!
+    id: ID!
+    username: String!
+    wishlistedContent: [Content]!
+    watchedContent: [Content]!
+}
+
+type Content{
+    title: String!
+    id: ID!
+    cast: [Cast]!
+    genre: Genre!
+    kind: Kind!
+    rating: Float!
+    release: Date!
+    similarContent: [Content]!
+}
+type Cast{
+    name: String!
+    id: ID!
+    work: [Content]!
+}
+
+type Date{
+    date: Int!
+    month: Int!
+    year: Int!
+}
+
+enum Kind{
+    MOVIE
+    WEBSERIES
+}
+
+enum Genre{
+    HORROR
+    COMEDY
+    SCIFI
+    ROMANTIC
+    THRILLER
+    ACTION
+    ADVENTURE
+}
+
+type Query {
+    user(id:ID!):User
+}
