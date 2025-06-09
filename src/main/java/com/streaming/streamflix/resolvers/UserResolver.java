@@ -10,7 +10,7 @@ import java.util.List;
 @DgsComponent
 public class UserResolver {
 
-    @DgsQuery(field = "user")
+    @DgsQuery(field = "user") //annotation for top level querry, GraphQL entry point
     public User getUserById(@Argument String id){
         return User.newBuilder().id(id).name("test").username("sample").wishlistedContent(List.of()).watchedContent(List.of()).build();
     }
