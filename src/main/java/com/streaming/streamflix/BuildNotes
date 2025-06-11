@@ -1,0 +1,9 @@
+To do list
+You need to bi directional mapper between GRaphQL genrated classes and model entitites
+Configure mongoDB and add sample data
+Build test stubs
+Repository vs MongoTemplates
+Learn about mongo reactive
+make sure you use flux instead of list in repo and service and controllers
+Test resolvers
+should we build microservices, see if it applies here since our application is hot data heavy
