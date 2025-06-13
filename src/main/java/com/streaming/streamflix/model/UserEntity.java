@@ -31,6 +31,12 @@ public class UserEntity {
         this.watchedContent = watchedContent;
     }
 
+    public UserEntity(String name, String username, String id) {
+        this.name = name;
+        this.username = username;
+        this.id = id;
+    }
+
     public String getUsername() {
         return username;
     }

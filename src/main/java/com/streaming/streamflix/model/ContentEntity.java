@@ -1,9 +1,12 @@
 package com.streaming.streamflix.model;
 
+import com.streaming.streamflix.codegen.types.Date;
+import com.streaming.streamflix.codegen.types.Genre;
+import com.streaming.streamflix.codegen.types.Kind;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+
 import java.util.List;
 
 @Document(collation = "content")
@@ -12,31 +15,36 @@ public class ContentEntity {
     @Id
     private String id;
     private Float rating;
-    private Date date;
+    private Date releaseDate;
     private List<ContentEntity> similarContent;
     private List<CastEntity> cast;
-    private GenreEnum genre;
-    private KindEnum kindEnum;
+    private Genre genre;
+    private Kind kind;
 
-    public ContentEntity(String title, Float rating, Date date, List<ContentEntity> similarContent, List<CastEntity> cast, GenreEnum genre, KindEnum kindEnum) {
+    public ContentEntity(String title, Float rating, Date releaseDate, List<ContentEntity> similarContent, List<CastEntity> cast, Genre genre, Kind kind) {
         this.title = title;
         this.rating = rating;
-        this.date = date;
+        this.releaseDate = releaseDate;
         this.similarContent = similarContent;
         this.cast = cast;
         this.genre = genre;
-        this.kindEnum = kindEnum;
+        this.kind = kind;
     }
 
-    public ContentEntity(String title, String id, Float rating, Date date, List<ContentEntity> similarContent, List<CastEntity> cast, GenreEnum genre, KindEnum kindEnum) {
+    public ContentEntity(String title, String id, Float rating, Date releaseDate, List<ContentEntity> similarContent, List<CastEntity> cast, Genre genre, Kind kind) {
         this.title = title;
         this.id = id;
         this.rating = rating;
-        this.date = date;
+        this.releaseDate = releaseDate;
         this.similarContent = similarContent;
         this.cast = cast;
         this.genre = genre;
-        this.kindEnum = kindEnum;
+        this.kind = kind;
+    }
+
+    public ContentEntity(String title, String id) {
+        this.title = title;
+        this.id = id;
     }
 
     public String getId() {
@@ -59,12 +67,12 @@ public class ContentEntity {
         this.rating = rating;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public List<ContentEntity> getSimilarContent() {
@@ -83,20 +91,20 @@ public class ContentEntity {
         this.cast = cast;
     }
 
-    public GenreEnum getGenre() {
+    public Genre getGenre() {
         return genre;
     }
 
-    public void setGenre(GenreEnum genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
-    public KindEnum getKindEnum() {
-        return kindEnum;
+    public Kind getKind() {
+        return kind;
     }
 
-    public void setKindEnum(KindEnum kindEnum) {
-        this.kindEnum = kindEnum;
+    public void setKind(Kind kind) {
+        this.kind = kind;
     }
 
     @Override
@@ -105,11 +113,11 @@ public class ContentEntity {
                 "title='" + title + '\'' +
                 ", id='" + id + '\'' +
                 ", rating=" + rating +
-                ", date=" + date +
+                ", date=" + releaseDate +
                 ", similarContent=" + similarContent +
                 ", cast=" + cast +
                 ", genre=" + genre +
-                ", kindEnum=" + kindEnum +
+                ", kindEnum=" + kind +
                 '}';
     }
 }
